@@ -1,14 +1,14 @@
-# Use OpenJDK 17 as base image
-FROM openjdk:17-jdk-slim
+# Use OpenJDK as base image
+FROM openjdk:17-jdk-alpine
 
 # Set working directory
 WORKDIR /app
 
-# Copy the built JAR file into the container
-COPY target/*.jar app.jar
+# Copy the JAR file into the container
+COPY target/portfolio-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose the port Spring Boot runs on (default is 8080)
+# Expose port 
 EXPOSE 8089
 
-# Command to run the JAR
+# Run the app
 ENTRYPOINT ["java", "-jar", "app.jar"]
